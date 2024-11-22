@@ -27,7 +27,7 @@ class MyApp extends StatelessWidget {
         backgroundColor: Colors.white,
         appBar: AppBar(
           title: const Text(
-      'My App Bar',
+      'Home',
             style: TextStyle(
               color: Colors.white,
             ),
