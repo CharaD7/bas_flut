@@ -12,16 +12,16 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       home: Scaffold(
-        backgroundColor: Colors.deepPurple[200],
+        backgroundColor: Colors.white,
         appBar: AppBar(
           title: Text(
-            'My App Bar',
+      'My App Bar',
             style: TextStyle(
               color: Colors.white,
             ),
           ),
           centerTitle: true,
-          backgroundColor: Colors.deepPurple,
+          backgroundColor: Colors.deepOrange,
           elevation: 0,
           leading: Icon(
             Icons.menu,
@@ -42,18 +42,20 @@ class MyApp extends StatelessWidget {
             height: 300,
             width: 300,
             decoration: BoxDecoration(
-              color: Colors.deepPurple,
+              color: Colors.deepOrange,
               borderRadius: BorderRadius.circular(20),
             ),
             padding: EdgeInsets.all(25),
-            child: Text(
-              "Mitch KOKO",
-              style: TextStyle(
-                color: Colors.white,
-                fontSize: 26,
-                fontWeight: FontWeight.bold,
+            child: Center(
+              child: Text(
+          "Mitch KOKO",
+                style: TextStyle(
+                  color: Colors.white,
+                  fontSize: 26,
+                  fontWeight: FontWeight.bold,
+                ),
               ),
-            ),
+            )       
           ),
         ),
       ),
