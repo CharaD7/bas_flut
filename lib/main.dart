@@ -7,6 +7,18 @@ void main() {
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
+  void menuTapped() {
+      print("Menu tapped");
+    }
+
+  void logoutTapped() {
+      print("Logout tapped");
+    }
+
+  void containerTapped() {
+    print("Container tapped");
+  }
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -14,7 +26,7 @@ class MyApp extends StatelessWidget {
       home: Scaffold(
         backgroundColor: Colors.white,
         appBar: AppBar(
-          title: Text(
+          title: const Text(
       'My App Bar',
             style: TextStyle(
               color: Colors.white,
@@ -23,14 +35,14 @@ class MyApp extends StatelessWidget {
           centerTitle: true,
           backgroundColor: Colors.deepOrange,
           elevation: 0,
-          leading: Icon(
+          leading: const Icon(
             Icons.menu,
             color: Colors.white,
           ),
           actions: [
             IconButton(
               onPressed: () {},
-              icon: Icon(
+              icon: const Icon(
                 Icons.logout,
                 color: Colors.white,
               )
@@ -38,25 +50,28 @@ class MyApp extends StatelessWidget {
           ],
         ),
         body: Center(
-          child: Container(
-            height: 300,
-            width: 300,
-            decoration: BoxDecoration(
-              color: Colors.deepOrange,
-              borderRadius: BorderRadius.circular(20),
-            ),
-            padding: EdgeInsets.all(25),
-            child: Center(
-              child: Text(
-          "Mitch KOKO",
-                style: TextStyle(
-                  color: Colors.white,
-                  fontSize: 26,
-                  fontWeight: FontWeight.bold,
+          child: GestureDetector(
+            onTap: containerTapped,
+            child: Container(
+              height: 300,
+              width: 300,
+              decoration: BoxDecoration(
+                color: Colors.deepOrange,
+                borderRadius: BorderRadius.circular(20),
                 ),
+              padding: const EdgeInsets.all(25),
+              child: const Center(
+                child: Text(
+                  "Mitch KOKO",
+                  style: TextStyle(
+                    color: Colors.white,
+                    fontSize: 26,
+                    fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                )       
               ),
-            )       
-          ),
+          )
         ),
       ),
     );
