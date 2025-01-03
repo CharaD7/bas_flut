@@ -41,7 +41,7 @@ class MyApp extends StatelessWidget {
           ),
           actions: [
             IconButton(
-              onPressed: () {},
+              onPressed: () {logoutTapped();},
               icon: const Icon(
                 Icons.logout,
                 color: Colors.white,
