@@ -32,7 +32,9 @@ class _CounterPageState extends State<CounterPage> {
             Text("You pushed the button this many times: "),
 
             // counter value
-            Text(_counter.toString()),
+            Text(_counter.toString(),
+              style: TextStyle(fontSize: 30),
+            ),
           ],
         ),
       ),
