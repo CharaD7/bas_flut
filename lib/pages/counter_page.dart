@@ -35,6 +35,12 @@ class _CounterPageState extends State<CounterPage> {
             Text(_counter.toString(),
               style: TextStyle(fontSize: 30),
             ),
+            
+            // button
+            ElevatedButton(
+              onPressed: _incrementCounter,
+              child: Text("Increment!")
+            ),
           ],
         ),
       ),
