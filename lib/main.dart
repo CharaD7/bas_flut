@@ -1,5 +1,5 @@
+import 'package:bas_flut/pages/home_page.dart';
 import 'package:flutter/material.dart';
-import 'pages/todo_page.dart';
 
 
 void main() {
@@ -13,7 +13,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: ToDoPage(),
+      home: const HomePage(),
     );
   }
 }
