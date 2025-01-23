@@ -1,3 +1,4 @@
+import 'package:bas_flut/util/dialog_box.dart';
 import 'package:bas_flut/util/todo_tile.dart';
 import 'package:flutter/material.dart';
 
@@ -29,7 +30,7 @@ class _HomePageState extends State<HomePage> {
     showDialog(
       context: context,
       builder: (context) {
-        return AlertDialog();
+        return DialogBox();
       },
     );
   }
