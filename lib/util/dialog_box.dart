@@ -1,3 +1,5 @@
+import 'package:bas_flut/util/u_button.dart';
+import 'package:bas_flut/util/u_button.dart';
 import 'package:flutter/material.dart';
 
 class DialogBox extends StatelessWidget {
@@ -10,6 +12,7 @@ class DialogBox extends StatelessWidget {
       content: Container(
         height: 120,
         child: Column(
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
             TextField(
               decoration: InputDecoration(
@@ -20,8 +23,15 @@ class DialogBox extends StatelessWidget {
               )
             ),
             Row(
-              children: [],
-            )
+              mainAxisAlignment: MainAxisAlignment.end,
+              children: [
+                UButton(text: "Save", onPressed: () => { print("Clicked Save")}),
+
+                const SizedBox( width: 10,),
+
+                UButton(text: "Cancel", onPressed: () => { print("Clicked Cancel")}),
+              ],
+              )
           ],
         )
       )
