@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 
-class TodoTile extends StatelessWidget {
+class ToDoTile extends StatelessWidget {
   final String taskName;
   final bool isCompleted;
   Function(bool?)? onChanged;
 
-  TodoTile({
+  ToDoTile({
     super.key,
     required this.taskName,
     required this.isCompleted,
