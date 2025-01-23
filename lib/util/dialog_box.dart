@@ -3,7 +3,15 @@ import 'package:flutter/material.dart';
 
 class DialogBox extends StatelessWidget {
   final controller;
-  const DialogBox({super.key, required this.controller});
+  VoidCallback onSave;
+  VoidCallback onCancel;
+
+  DialogBox({
+    super.key,
+    required this.controller,
+    required this.onSave,
+    required this.onCancel,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -26,11 +34,11 @@ class DialogBox extends StatelessWidget {
             Row(
               mainAxisAlignment: MainAxisAlignment.end,
               children: [
-                UButton(text: "Save", onPressed: () => { print("Clicked Save")}),
+                UButton(text: "Save", onPressed: onSave),
 
                 const SizedBox( width: 10,),
 
-                UButton(text: "Cancel", onPressed: () => { print("Clicked Cancel")}),
+                UButton(text: "Cancel", onPressed: onCancel),
               ],
               )
           ],
