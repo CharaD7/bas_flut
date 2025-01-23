@@ -24,8 +24,8 @@ class _HomePageState extends State<HomePage> {
     setState(() {
       toDoList.add([_controller.text, false]);
       _controller.clear();
-      Navigator.of(context).pop();
     });
+    Navigator.of(context).pop();
   }
 
   // cancel dialog box
