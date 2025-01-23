@@ -40,9 +40,7 @@ class _HomePageState extends State<HomePage> {
           return TodoTile(
             taskName: toDoList[index][0],
             isCompleted: toDoList[index][1],
-            onChanged: (value) {
-              checkBoxChanged(value, index);
-            },
+            onChanged: (value) => checkBoxChanged(value, index),
           );
         },
       ),
