@@ -16,7 +16,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         appBarTheme: AppBarTheme(
           backgroundColor: Colors.red[500],
-          titleTextStyle: TextStyle(
+          titleTextStyle: const TextStyle(
             fontWeight: FontWeight.bold,
             fontSize: 25.0,
           ),
