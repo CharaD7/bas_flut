@@ -40,7 +40,7 @@ class _HomePageState extends State<HomePage> {
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: AppBar(
-        title: const Text('TO DO'),
+        title: const Text('TO DO App'),
         surfaceTintColor: Colors.white,
         centerTitle: true,
         elevation: 0,
