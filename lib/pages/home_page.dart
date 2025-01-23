@@ -15,9 +15,22 @@ class _HomePageState extends State<HomePage> {
 
   // List of Todo tasks
   List toDoList = [
-    [ "Buy a tin of milk", false ],
+    [ "Scrape Meqasa", false ],
     [ "Record a tutorial", false ],
   ];
+
+  // save a new task
+  void onSave() {
+    setState(() {
+      toDoList.add([_controller.text, false]);
+      Navigator.of(context).pop();
+    });
+  }
+
+  // cancel dialog box
+  void onCancel() {
+    Navigator.of(context).pop();
+  }
 
   // Checkbox was checked
   void checkBoxChanged(bool? value, int index) {
@@ -32,7 +45,11 @@ class _HomePageState extends State<HomePage> {
     showDialog(
       context: context,
       builder: (context) {
-        return DialogBox( controller: _controller);
+        return DialogBox(
+          controller: _controller,
+          onSave: onSave,
+          onCancel: onCancel,
+        );
       },
     );
   }
