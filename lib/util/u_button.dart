@@ -13,7 +13,8 @@ class UButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialButton(
       onPressed: onPressed,
-      color: Theme.of(context).primaryColor,
+      color: text == "Save" ? Colors.red[500] : Theme.of(context).primaryColor,
+      textColor: Colors.white,
       child: Text(text),
     );
   }
