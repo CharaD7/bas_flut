@@ -15,11 +15,13 @@ class DialogBox extends StatelessWidget {
               decoration: InputDecoration(
                 border: OutlineInputBorder(
                   borderRadius: BorderRadius.all(Radius.circular(6.0)),
-                  borderSide: BorderSide(color: Colors.red)
                 ),
                 hintText: "Add a new task",
               )
             ),
+            Row(
+              children: [],
+            )
           ],
         )
       )
