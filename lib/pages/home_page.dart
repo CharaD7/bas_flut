@@ -29,15 +29,15 @@ class _HomePageState extends State<HomePage> {
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: AppBar(
-        backgroundColor: Colors.red[500],
         title: const Text('TO DO'),
+        surfaceTintColor: Colors.white,
         centerTitle: true,
         elevation: 0,
       ),
       body: ListView.builder(
         itemCount: toDoList.length,
         itemBuilder: (context, index) {
-          return TodoTile(
+          return ToDoTile(
             taskName: toDoList[index][0],
             isCompleted: toDoList[index][1],
             onChanged: (value) => checkBoxChanged(value, index),
