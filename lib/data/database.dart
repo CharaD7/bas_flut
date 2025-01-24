@@ -19,5 +19,8 @@ class ToDoDatabase {
     toDoList = _newBox.get("TODOLIST");
   }
 
-  
+  // update the database
+  void updateDatabase(){
+    _newBox.put("TODOLIST", toDoList);
+  }
 }
