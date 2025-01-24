@@ -1,8 +1,12 @@
 import 'package:bas_flut/pages/home_page.dart';
 import 'package:flutter/material.dart';
+import 'package:hive_flutter/hive_flutter.dart';
 
 
-void main() {
+void main() async {
+  // initialize hive
+  await Hive.initFlutter();
+
   runApp(const MyApp());
 }
 
