@@ -13,4 +13,11 @@ class ToDoDatabase {
       [ "Record a tutorial", false ],
     ];
   }
+
+  // fetch data from the database
+  void fetchData() {
+    toDoList = _newBox.get("TODOLIST");
+  }
+
+  
 }
