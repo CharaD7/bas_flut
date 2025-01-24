@@ -1,6 +1,8 @@
+import 'package:bas_flut/data/database.dart';
 import 'package:bas_flut/util/dialog_box.dart';
 import 'package:bas_flut/util/todo_tile.dart';
 import 'package:flutter/material.dart';
+import 'package:hive_flutter/hive_flutter.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -10,19 +12,17 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
+  // reference the hive box
+  final _newBox = Hive.openBox("newBox");
+  ToDoDatabase db = ToDoDatabase();
+
   // text controller
   final _controller = TextEditingController();
-
-  // List of Todo tasks
-  List toDoList = [
-    [ "Scrape Meqasa", false ],
-    [ "Record a tutorial", false ],
-  ];
 
   // save a new task
   void onSave() {
     setState(() {
-      toDoList.add([_controller.text, false]);
+      db.toDoList.add([_controller.text, false]);
       _controller.clear();
     });
     Navigator.of(context).pop();
@@ -37,7 +37,7 @@ class _HomePageState extends State<HomePage> {
   void checkBoxChanged(bool? value, int index) {
     setState(() {
       // Update the state of the checkbox
-      toDoList[index][1] = !toDoList[index][1];
+      db.toDoList[index][1] = !db.toDoList[index][1];
     });
   }
 
@@ -58,7 +58,7 @@ class _HomePageState extends State<HomePage> {
   // delete task
   void deleteTask(int index) {
     setState(() {
-      toDoList.removeAt(index);
+      db.toDoList.removeAt(index);
     });
   }
 
@@ -79,11 +79,11 @@ class _HomePageState extends State<HomePage> {
         child: Icon(Icons.add)
       ),
       body: ListView.builder(
-        itemCount: toDoList.length,
+        itemCount: db.toDoList.length,
         itemBuilder: (context, index) {
           return ToDoTile(
-            taskName: toDoList[index][0],
-            isCompleted: toDoList[index][1],
+            taskName: db.toDoList[index][0],
+            isCompleted: db.toDoList[index][1],
             onChanged: (value) => checkBoxChanged(value, index),
             deleteFunction: (context) => deleteTask(index),
           );
