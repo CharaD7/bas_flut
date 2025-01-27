@@ -16,6 +16,18 @@ class _HomePageState extends State<HomePage> {
   final _newBox = Hive.openBox("newBox");
   ToDoDatabase db = ToDoDatabase();
 
+  @override
+  void initState() {
+    // if this is the first time ever opening the app
+    if (_newBox.get("TODOLIST") == null ) {
+      // create the dummy data
+      db.createInitialData();
+    } else {
+      // load the existing data
+      db.fetchData();
+    }
+  }
+
   // text controller
   final _controller = TextEditingController();
 
@@ -39,6 +51,7 @@ class _HomePageState extends State<HomePage> {
       // Update the state of the checkbox
       db.toDoList[index][1] = !db.toDoList[index][1];
     });
+    db.updateDatabase();
   }
 
   // create new task
@@ -60,6 +73,7 @@ class _HomePageState extends State<HomePage> {
     setState(() {
       db.toDoList.removeAt(index);
     });
+    db.updateDatabase();
   }
 
   @override
