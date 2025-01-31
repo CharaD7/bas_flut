@@ -13,17 +13,23 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   // reference the hive box
-  final _newBox = Hive.openBox("newBox");
+  late final Box _newBox;
   ToDoDatabase db = ToDoDatabase();
 
   @override
   void initState() {
+    super.initState();
+    initBox();
+  }
+
+  // Initialize box
+  void initBox() async {
+    _newBox = await Hive.openBox("newBox");
+
     // if this is the first time ever opening the app
-    if (_newBox.get("TODOLIST") == null ) {
-      // create the dummy data
+    if (_newBox.get("TODOLIST") == null) {
       db.createInitialData();
     } else {
-      // load the existing data
       db.fetchData();
     }
   }
@@ -87,11 +93,10 @@ class _HomePageState extends State<HomePage> {
         elevation: 0,
       ),
       floatingActionButton: FloatingActionButton(
-        backgroundColor: Colors.red[500],
-        foregroundColor: Colors.white,
-        onPressed: createNewTask,
-        child: Icon(Icons.add)
-      ),
+          backgroundColor: Colors.red[500],
+          foregroundColor: Colors.white,
+          onPressed: createNewTask,
+          child: const Icon(Icons.add)),
       body: ListView.builder(
         itemCount: db.toDoList.length,
         itemBuilder: (context, index) {
